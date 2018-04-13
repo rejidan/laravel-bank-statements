@@ -176,7 +176,7 @@ Recently a Android app released to help you see transaction history and balance 
 
 ![CekDuit](https://lh3.googleusercontent.com/z3amoSIKdH1YklLTnGGDOPfYeIER2iK29JOC0coJNGK5rd0pV51sF7vqQizU7oOWIw=w1444-h970-rw)
 
-Using the same logic as this repository to collect the transaction history, but running only on the device.
+Using the same logic as this repository to collect the transaction history, but running only on the device, so the data only stored in the device.
 The source code currently is not open sourced.
 
 ## License
