@@ -171,6 +171,14 @@ To modify the configuration file, the default config file need to be published f
 
 Contributions to the Laravel Bank Statements library are very welcome
 
+## Android App
+Recently a Android app released to help you see transaction history and balance from multiple internet banking, and it's called "[CekDuit](https://goo.gl/1kPRtm)".
+
+![CekDuit](https://lh3.googleusercontent.com/z3amoSIKdH1YklLTnGGDOPfYeIER2iK29JOC0coJNGK5rd0pV51sF7vqQizU7oOWIw=w1444-h970-rw)
+
+Using the same logic as this repository to collect the transaction history, but running only on the device.
+The source code currently is not open sourced.
+
 ## License
 
 Bank Statements Collector is licensed under the [MIT License](http://opensource.org/licenses/MIT).
