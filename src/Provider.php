@@ -78,6 +78,13 @@ abstract class Provider implements ProviderInterface
     /**
      * {@inheritdoc}
      */
+    public function getBy($field, $value) {
+        return $this->getTable()->where($field, $value)->first();
+    }  
+
+    /**
+     * {@inheritdoc}
+     */
     public function search(Array $params = [], $page = 1, $limit = 10)
     {
         return new Collection();

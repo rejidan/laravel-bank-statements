@@ -320,6 +320,73 @@ class Statement extends Provider
     }
 
     /**
+     * Collect statements by a Bank collector.
+     * 
+     * @param  \Carbon\Carbon  $startDate
+     * @param  \Carbon\Carbon  $endDate
+     * @param  array           $params
+     * @return void
+     * @throws \RuntimeException
+     * @throws \FatalThrowableError
+     * @throws \ErrorException
+     * @throws \Sule\BankStatements\LoginFailureException
+     */
+    public function collectBy($collector, Carbon $startDate, Carbon $endDate, Array $params = [])
+    {
+        $params = array_merge($params, []);
+
+        $account = $this->account->getBy('collector', $collector);
+
+        if (empty($account)) {
+            throw new RuntimeException('Bank account not registered');
+        }
+
+        if ( ! isset($this->collectors[$account->collector])) {
+            throw new RuntimeException('Collector ['.$account->collector.'] is not available');
+        }
+
+        $this->collectors[$account->collector]->setTempStoragePath($this->tempStoragePath);
+        $this->collectors[$account->collector]->setBaseUri($account->url);
+        $this->collectors[$account->collector]->setCredential($account->user_id, decrypt($account->password));
+        $this->collectors[$account->collector]->setAdditionalEntityParams([
+            'account_id' => $account->id
+        ]);
+
+        try {
+            $this->collectors[$account->collector]->landing();
+        } catch (RequireExtendedProcessException $e) {
+            $this->collectors[$account->collector]->saveState($account->collector);
+            $this->saveState($account->id);
+            throw new RequireExtendedProcessException($account->collector);
+        }
+
+        $this->collectors[$account->collector]->login();
+        
+        try {
+            $items = $this->collectors[$account->collector]->collect($startDate, $endDate);
+
+            if ($items->isNotEmpty()) {
+                $this->saveItems($items);
+            }
+        } catch (FatalThrowableError $e) {
+            $this->collectors[$account->collector]->logout();
+
+            throw new RuntimeException($e->getMessage());
+        } catch (ErrorException $e) {
+            $this->collectors[$account->collector]->logout();
+
+            throw new RuntimeException($e->getMessage());
+        } catch (RuntimeException $e) {
+            $this->collectors[$account->collector]->logout();
+
+            throw new RuntimeException($e->getMessage());
+        }
+
+        $this->collectors[$account->collector]->logout();
+        
+    }
+
+    /**
      * Continue collect statements.
      * 
      * @param  \Carbon\Carbon  $startDate
