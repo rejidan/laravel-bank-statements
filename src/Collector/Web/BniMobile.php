@@ -1,6 +1,6 @@
 <?php
 
-namespace Sule\BankStatements\Collector\Web;
+namespace Amin\BankStatements\Collector\Web;
 
 /*
  * This file is part of the Sulaeman Bank Statements package.
