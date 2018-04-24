@@ -27,7 +27,7 @@
       "src/Exceptions.php"
     ], 
     "psr-4": {
-      "Sule\\BankStatements\\": "src"
+      "Amin\\BankStatements\\": "src"
     }
   },
   "autoload-dev": {

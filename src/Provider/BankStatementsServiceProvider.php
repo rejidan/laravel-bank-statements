@@ -13,14 +13,14 @@ namespace Amin\BankStatements\Provider;
 
 use Illuminate\Support\ServiceProvider;
 
-use Sule\BankStatements\Console\TableCommand;
-use Sule\BankStatements\Console\AccountsTableCommand;
-use Sule\BankStatements\Console\AssetsCommand;
-use Sule\BankStatements\Console\ViewsCommand;
+use Amin\BankStatements\Console\TableCommand;
+use Amin\BankStatements\Console\AccountsTableCommand;
+use Amin\BankStatements\Console\AssetsCommand;
+use Amin\BankStatements\Console\ViewsCommand;
 
-use Sule\BankStatements\Account;
-use Sule\BankStatements\Statement;
-use Sule\BankStatements\NullProvider;
+use Amin\BankStatements\Account;
+use Amin\BankStatements\Statement;
+use Amin\BankStatements\NullProvider;
 
 use RuntimeException;
 

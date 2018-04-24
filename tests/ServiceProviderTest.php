@@ -4,9 +4,9 @@ use Mockery;
 
 use Illuminate\Support\ServiceProvider;
 
-use Sule\BankStatements\Provider\LaravelServiceProvider;
-use Sule\BankStatements\Account;
-use Sule\BankStatements\Statement;
+use Amin\BankStatements\Provider\LaravelServiceProvider;
+use Amin\BankStatements\Account;
+use Amin\BankStatements\Statement;
 
 class ServiceProviderTest extends TestCase
 {

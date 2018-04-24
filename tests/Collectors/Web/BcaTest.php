@@ -1,6 +1,6 @@
 <?php
 
-Use Sule\BankStatements\Collector\Web\Bca;
+Use Amin\BankStatements\Collector\Web\Bca;
 
 class BcaTest extends TestCase
 {

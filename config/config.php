@@ -30,10 +30,10 @@ return [
     'collector' => [
         'type' => env('BANK_COLLECTOR', 'web'), // only available "web" at the moment
         'web'  => [
-            'bca'        => Sule\BankStatements\Collector\Web\Bca::class,
-            'mandiri'    => Sule\BankStatements\Collector\Web\Mandiri::class,
-            'bni-mobile' => Sule\BankStatements\Collector\Web\BniMobile::class,
-            'muamalat'   => Sule\BankStatements\Collector\Web\Muamalat::class
+            'bca'        => Amin\BankStatements\Collector\Web\Bca::class,
+            'mandiri'    => Amin\BankStatements\Collector\Web\Mandiri::class,
+            'bni-mobile' => Amin\BankStatements\Collector\Web\BniMobile::class,
+            'muamalat'   => Amin\BankStatements\Collector\Web\Muamalat::class
         ],
         'temp_storage_path' => env('BANK_TEMP_STORAGE_PATH', storage_path().'/app')
     ],

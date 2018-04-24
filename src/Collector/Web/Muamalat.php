@@ -11,7 +11,7 @@ namespace Amin\BankStatements\Collector\Web;
  * file that was distributed with this source code.
  */
 
-use Sule\BankStatements\Collector\Web;
+use Amin\BankStatements\Collector\Web;
 
 use Illuminate\Support\Collection;
 
@@ -25,10 +25,10 @@ use DOMDocument;
 use DOMNodeList;
 use DOMNode;
 
-use Sule\BankStatements\Collector\Entity;
+use Amin\BankStatements\Collector\Entity;
 
 use RuntimeException;
-use Sule\BankStatements\LoginFailureException;
+use Amin\BankStatements\LoginFailureException;
 
 class Muamalat extends Web
 {

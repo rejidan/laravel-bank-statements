@@ -17,15 +17,15 @@ use Illuminate\Support\Collection;
 use Carbon\Carbon;
 
 use RuntimeException;
-use Sule\BankStatements\RecordNotFoundException;
-use Sule\BankStatements\RequireExtendedProcessException;
+use Amin\BankStatements\RecordNotFoundException;
+use Amin\BankStatements\RequireExtendedProcessException;
 
 class Statement extends Provider
 {
     /**
      * The Account instances.
      *
-     * @var \Sule\BankStatements\Account
+     * @var \Amin\BankStatements\Account
      */
     protected $account;
 
@@ -251,7 +251,7 @@ class Statement extends Provider
      * @throws \RuntimeException
      * @throws \FatalThrowableError
      * @throws \ErrorException
-     * @throws \Sule\BankStatements\LoginFailureException
+     * @throws \Amin\BankStatements\LoginFailureException
      */
     public function collect(Carbon $startDate, Carbon $endDate, Array $params = [])
     {
@@ -329,7 +329,7 @@ class Statement extends Provider
      * @throws \RuntimeException
      * @throws \FatalThrowableError
      * @throws \ErrorException
-     * @throws \Sule\BankStatements\LoginFailureException
+     * @throws \Amin\BankStatements\LoginFailureException
      */
     public function continueCollect(Carbon $startDate, Carbon $endDate, Array $params = [])
     {
